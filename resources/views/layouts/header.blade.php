@@ -14,17 +14,17 @@
                     </a>
                 </li>
                 <li class="nav-user dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">杨阔阔
+                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">{{Auth::user()->name}}
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">个人资料</a></li>
-                        <li><a href="#">
+                        <li><a href="/logout">
                                 <i class="glyphicon glyphglyphicon glyphicon-log-out"></i>退出</a></li>
                     </ul>
                 </li>
                 <li class="logout">
-                    <a href="" title="登出">
+                    <a href="/logout" title="登出">
                         <i class="glyphicon glyphglyphicon glyphicon-log-out"></i>
                     </a>
                 </li>
