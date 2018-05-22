@@ -9,7 +9,7 @@ class LinkController extends Controller
 {
     public function __construct()
     {
-
+        
     }
     public function index(Request $request){
         $link = new Link();

@@ -77,6 +77,7 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
     Route::post('ad/postCreate','Link\LinkController@postCreate');
     Route::get('ad/edit','Ad\AdController@edit');
     Route::post('ad/postEdit','Link\LinkController@postEdit');
+    Route::post('ad/del','Link\LinkController@delete');
 
 });
 Route::post('auth/login','Auth\LoginController@postLogin');
