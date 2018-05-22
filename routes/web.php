@@ -74,10 +74,10 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
      */
     Route::get('ad/list','Ad\AdController@index');
     Route::get('ad/create','Ad\AdController@create');
-    Route::post('ad/postCreate','Link\LinkController@postCreate');
+    Route::post('ad/postCreate','Ad\AdController@postCreate');
     Route::get('ad/edit','Ad\AdController@edit');
-    Route::post('ad/postEdit','Link\LinkController@postEdit');
-    Route::post('ad/del','Link\LinkController@delete');
+    Route::post('ad/postEdit','Ad\AdController@postEdit');
+    Route::post('ad/del','Ad\AdController@delete');
 
 });
 Route::post('auth/login','Auth\LoginController@postLogin');

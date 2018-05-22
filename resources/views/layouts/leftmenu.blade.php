@@ -71,7 +71,7 @@ $permArr = explode('|',$str);
                     <i class="glyphicon toggle-icon glyphicon-menu-left"></i>
                 </a>
                 <ul class="side-ul-menu">
-                    <li class="active"><a href="/adSpace/list">广告列表</a></li>
+                    <li class="active"><a href="/ad/list">广告列表</a></li>
                     <li><a href="/adSpace/list">广告位列表</a></li>
                 </ul>
             </li>

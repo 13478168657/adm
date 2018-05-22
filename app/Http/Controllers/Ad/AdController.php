@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Ad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Advertisement;
+use App\Models\AdSpace;
 class AdController extends Controller
 {
     public function __construct(){
@@ -19,11 +20,12 @@ class AdController extends Controller
             $advertisement = $advertisement->where('name','like','%'.$request->input('name').'%');
         }
         $advertisements = $advertisement->paginate(15);
-        return view('ad.index',['advertisements'=>$advertisements,'request'=>$request]);
+        return view('ads.index',['advertisements'=>$advertisements,'request'=>$request]);
     }
 
     public function create(Request $request){
-        return view('ad.create');
+        $adSpaces = AdSpace::select('id','name')->get();
+        return view('ads.create',['adSpaces'=>$adSpaces]);
     }
 
     public function postCreate(Request $request){
@@ -31,8 +33,9 @@ class AdController extends Controller
         $advertisement->url = $request->input('url');
         $advertisement->start = $request->input('start');
         $advertisement->end = $request->input('end');
-        $advertisement->comment = $request->input('desc');
+        $advertisement->desc = $request->input('desc');
         $advertisement->status = $request->input('status');
+        $advertisement->position_id = $request->input('position_id');
         if($request->input('image')){
             $picResult = $this->upload($request);
             $advertisement->photo =  $picResult['imgurl'];
@@ -44,7 +47,8 @@ class AdController extends Controller
 
     public function edit(Request $request){
         $advertisement = Advertisement::where('id',$request->input('id'))->first();
-        return view('ad.edit',['advertisement'=>$advertisement]);
+        $adSpaces = AdSpace::select('id','name')->get();
+        return view('ads.edit',['advertisement'=>$advertisement,'adSpaces'=>$adSpaces]);
     }
 
     public function postEdit(Request $request){
@@ -77,7 +81,7 @@ class AdController extends Controller
     public function upload(Request $request)
     {
         $imageUpload = new ImageUpload();
-        $resutl = $imageUpload->upload($request);
+        $result = $imageUpload->upload($request);
         return $result;
     }
 }

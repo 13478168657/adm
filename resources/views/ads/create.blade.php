@@ -4,23 +4,24 @@
 @endsection
 @section('content')
     <div class="main" id="mainWrapper">
-        <h3>添加文章</h3>
+        <h3>广告添加</h3>
         <div class="wrapper table-scroll-wrapper">
             <div class="row">
                 <div class='col-md-12'>
                     <div class="table-responsive">
-                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/article/postCreate">
+                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/ad/postCreate">
                             {{csrf_field()}}
                             <table class="table table-condensed table-add">
+                                <input type="hidden" name="image"/>
                                 <tr>
                                     <th style="width:10%;">
                                         <label for="">广告位:</label>
                                     </th>
                                     <td style="width:90%;">
                                         <div class="ui-select span5">
-                                            <select name="type" id="" class="form-control">
-                                                @foreach($classifies as $classify)
-                                                <option value="{{$classify->id}}">{{$classify->name}}</option>
+                                            <select name="position_id"  id="" class="form-control">
+                                                @foreach($adSpaces as $space)
+                                                <option value="{{$space->id}}">{{$space->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -39,7 +40,7 @@
                                     <th style="width:10%;">
                                         <label for="case_foreman_id">广告图片:</label>
                                     </th>
-                                    <td style="width:90%;">                                               <input type="file" name="thumbPic" class="" id="">
+                                    <td style="width:90%;">                                               <input type="file" name="image_upload" class="" id="">
                                         <div class="image_upload"></div>
                                     </td>
                                 </tr>
@@ -48,7 +49,7 @@
                                         <label for="case_foreman_id">开始时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="url" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="start" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -57,7 +58,7 @@
                                         <label for="case_foreman_id">结束时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="url" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="end" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -105,7 +106,7 @@
     <script src="/js/upload.js"></script>
     <script src="/js/mobileBUGFix.mini.js"></script>
     <script>
-        $("input[name='thumbPic']").UploadImg({
+        $("input[name='image_upload']").UploadImg({
             url : '/article/upload',
             // width : '320',
             //height : '200',
@@ -116,7 +117,8 @@
             before : function(blob){
                 var img = '<div class="img_span">'+'<img src="'+blob+'" class="img"/><span onclick="delImgUrl(this);" class="image_icon"></span></div>';
                 $('.image_upload').append(img);
-                $("input[name='image']").val(img);
+//                alert(blob);
+                $("input[name='image']").val(blob);
             },
             error : function(res){
                 $('#img').attr('src','');

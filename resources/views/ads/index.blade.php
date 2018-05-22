@@ -85,12 +85,16 @@
                             </tr>
                             </thead>
                             @foreach($advertisements as $ad)
+                                <?php
+
+                                ?>
                                 <tr>
-                                    <td>{{$ad->title}}</td>
+                                    <td>{{$ad->position_id}}</td>
                                     <td>{{$ad->desc}}</td>
-                                    <td>{{$ad->type}}</td>
+                                    <td>{{$ad->start}}</td>
+                                    <td>{{$ad->end}}</td>
                                     <td>{{App\Constants\ArticleStatus::trans($ad->status)}}</td>
-                                    <td><a href="/ad/del">删除</a>／<a href="/ad/edit?id={{$article->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
+                                    <td><a href="/ad/del">删除</a>／<a href="/ad/edit?id={{$ad->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
                                 </tr>
                             @endforeach
                         </table>

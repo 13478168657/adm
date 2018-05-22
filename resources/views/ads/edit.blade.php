@@ -4,13 +4,14 @@
 @endsection
 @section('content')
     <div class="main" id="mainWrapper">
-        <h3>添加文章</h3>
+        <h3>广告添加</h3>
         <div class="wrapper table-scroll-wrapper">
             <div class="row">
                 <div class='col-md-12'>
                     <div class="table-responsive">
-                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/article/postCreate">
+                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/ad/postCreate">
                             {{csrf_field()}}
+                            <input type="hidden" value="{{$advertisement->id}}" />
                             <table class="table table-condensed table-add">
                                 <tr>
                                     <th style="width:10%;">
@@ -18,9 +19,13 @@
                                     </th>
                                     <td style="width:90%;">
                                         <div class="ui-select span5">
-                                            <select name="type" id="" class="form-control">
-                                                @foreach($classifies as $classify)
-                                                <option value="{{$classify->id}}">{{$classify->name}}</option>
+                                            <select name="position_id"  id="" class="form-control">
+                                                @foreach($adSpaces as $space)
+                                                    @if($space->id == $advertisement->position_id)
+                                                        <option value="{{$space->id}}" selected>{{$space->name}}</option>
+                                                    @else
+                                                        <option value="{{$space->id}}">{{$space->name}}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>
@@ -31,7 +36,7 @@
                                         <label for="case_foreman_id">链接地址:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="url" cols="100" class="form-control" id="inputPassword2" placeholder="链接地址"/>
+                                        <div class="form-group">                                                                 <input type="text" value="{{$advertisement->url}}" rows="4" name="url" cols="100" class="form-control" id="inputPassword2" placeholder="链接地址"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -39,7 +44,7 @@
                                     <th style="width:10%;">
                                         <label for="case_foreman_id">广告图片:</label>
                                     </th>
-                                    <td style="width:90%;">                                               <input type="file" name="thumbPic" class="" id="">
+                                    <td style="width:90%;">                                               <input type="file" name="image" class="" id="">
                                         <div class="image_upload"></div>
                                     </td>
                                 </tr>
@@ -48,7 +53,7 @@
                                         <label for="case_foreman_id">开始时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="url" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="start" value="{{$advertisement->start}}" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -57,7 +62,7 @@
                                         <label for="case_foreman_id">结束时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="url" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" value="{{$advertisement->end}}" name="end" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -66,7 +71,7 @@
                                         <label for="case_foreman_id">描述:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <textarea type="text" rows="4" name="desc" cols="100" class="form-control" id="inputPassword2" placeholder="描述"></textarea>
+                                        <div class="form-group">                                                                 <textarea type="text" rows="4" name="desc" value="{{$advertisement->desc}}" cols="100" class="form-control" id="inputPassword2" placeholder="描述"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -98,14 +103,14 @@
             </div>
         </div>
     </div>
-@endsection
-@section('script')
+    @endsection
+    @section('script')
 
-    <!-- page specific plugin scripts -->
+            <!-- page specific plugin scripts -->
     <script src="/js/upload.js"></script>
     <script src="/js/mobileBUGFix.mini.js"></script>
     <script>
-        $("input[name='thumbPic']").UploadImg({
+        $("input[name='image']").UploadImg({
             url : '/article/upload',
             // width : '320',
             //height : '200',
@@ -133,32 +138,32 @@
 @endsection
 @section('css')
     <style>
-    .image_upload .img{
-        height:80px;
-        width:80px;
-        margin-left:8px;
-    }
-    .radio-inline input{
-        margin-top:2px;
-    }
-    .img_span{
-        width:80px;
-        float:left;
-        margin-right:10px;
-        position:relative;
-    }
-    .image_icon{
-        background: url(/img/icons.png) no-repeat;
-        width: 24px;
-        height: 24px;
-        display: inline;
-        text-indent: -9999px;
-        overflow: hidden;
-        position:absolute;
-        top:4px;
-        right:-10px;
-        background-position:-46px -25px;
-        cursor: pointer;
-    }
+        .image_upload .img{
+            height:80px;
+            width:80px;
+            margin-left:8px;
+        }
+        .radio-inline input{
+            margin-top:2px;
+        }
+        .img_span{
+            width:80px;
+            float:left;
+            margin-right:10px;
+            position:relative;
+        }
+        .image_icon{
+            background: url(/img/icons.png) no-repeat;
+            width: 24px;
+            height: 24px;
+            display: inline;
+            text-indent: -9999px;
+            overflow: hidden;
+            position:absolute;
+            top:4px;
+            right:-10px;
+            background-position:-46px -25px;
+            cursor: pointer;
+        }
     </style>
 @endsection
