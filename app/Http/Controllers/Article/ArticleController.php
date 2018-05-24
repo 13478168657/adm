@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Article;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
@@ -27,6 +28,8 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
+        $category_number = $request->input('id');
+        $category = Category::where('category_num',$category_number)->first();
         $article = new Article();
         if($request->input('status')){
             $article = $article->where('status',$request->input('status'));
@@ -40,33 +43,45 @@ class ArticleController extends Controller
         if($request->input('end_time')){
             $article = $article->where('created_at','<=',$request->input('end_time'));
         }
+        $article = $article->where('category_number',$category_number);
         $articles = $article->paginate(15);
-//        dd($article);
-        return view('articles.list',['articles'=>$articles,'request'=>$request]);
+        return view('articles.list',['articles'=>$articles,'request'=>$request,'category'=>$category]);
     }
 
     public function add(Request $request){
         $classify = ArticleClassify::get();
         $classifyList = ClassifyUtil::getTree($classify ,0,0);
-        return view('articles.add',['classifies'=>$classifyList]);
+        return view('articles.add',['classifies'=>$classifyList,'category_id'=>$request->input('pid')]);
     }
     /*
      * 添加文章
      */
     public function postCreate(Request $request){
         $article = new Article();
+//        dd($request->all());
+        $category_id = $request->input('category_id');
+        $category = Category::where('id',$category_id)->first();
+
         $article->title = $request->input('title');
-        $article->desc = $request->input('desc');
+        $article->category_id = $category_id;
+        $article->number = intval($request->input('number'));
+        $article->category_number = $category->category_num;
+        $article->meta_description = $request->input('meta_description');
+        $article->meta_description = $request->input('meta_keyword');
+        $article->meta_description = $request->input('meta_title');
         $article->content = $request->input('content');
-        $article->type = $request->input('type');
-        $article->status = $request->input('status');
+        $article->source = $request->input('source');
+        $article->status = intval($request->input('status'));
+        $article->market_price = $request->input('market_price');
+        $article->member_price = $request->input('member_price');
+        $article->hot_price = $request->input('hot_price');
         if($request->input('image')){
             $picResult = $this->upload($request);
             $article->thumbPic =  $picResult['imgurl'];
         }
         $article->creator_user_id = 1;
         if($article->save()){
-            return redirect('/article/list');
+            return redirect('/manage/info?id='.$article->category_number);
         }
     }
     /*
@@ -74,28 +89,36 @@ class ArticleController extends Controller
      */
     public function edit(Request $request){
         $id = $request->input('id');
+        $category_id = $request->input('pid');
         $article = Article::where('id',$id)->first();
         $classify = ArticleClassify::get();
         $classifyList = ClassifyUtil::getTree($classify ,0,0);
-        return view('articles.edit',['article'=>$article,'classifies'=>$classifyList]);
+        return view('articles.edit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id]);
     }
     /*
      * 编辑处理
      */
     public function postEdit(Request $request){
+//        dd($request->all());
         $article = Article::where('id',$request->input('id'))->first();
         $article->title = $request->input('title');
-        $article->type = $request->input('type');
-        $article->desc = $request->input('desc');
+        $article->number = intval($request->input('number'));
+        $article->meta_description = $request->input('meta_description');
+        $article->meta_description = $request->input('meta_keyword');
+        $article->meta_description = $request->input('meta_title');
         $article->content = $request->input('content');
-        $article->status = $request->input('status');
+        $article->source = $request->input('source');
+        $article->status = intval($request->input('status'));
+        $article->market_price = $request->input('market_price');
+        $article->member_price = $request->input('member_price');
+        $article->hot_price = $request->input('hot_price');
         if($request->input('image')){
             $picResult = $this->upload($request);
             $article->thumbPic =  $picResult['imgurl'];
         }
-        $article->creator_user_id = 0;
+        $article->creator_user_id = $request->user()->id;
         if($article->save()){
-            return redirect('/article/list');
+            return redirect('/manage/info?id='.$article->category_number);
         }
     }
     /*
@@ -104,7 +127,7 @@ class ArticleController extends Controller
     public function upload(Request $request)
     {
         $imageUpload = new ImageUpload();
-        $resutl = $imageUpload->upload($request);
+        $result = $imageUpload->upload($request);
         return $result;
     }
 }

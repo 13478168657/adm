@@ -29,9 +29,19 @@
 @yield('css')
 @yield('script')
 <script>
-	$(function(){
-
-	});
+	var lefturl = window.location.pathname;
+    var patt = /.*?\/$/;
+    if(patt.test(lefturl)){
+        lefturl = lefturl.substr(0, (lefturl.length-1) );
+    }
+    if(lefturl == '/list/card' || lefturl == '/list/card_shenhe'){
+        $("#commissions").css("display","block");
+        $("#listcard").addClass("active");
+    }
+    if(lefturl == '/adminuser'){
+        $("#system").css("display","block");
+        $("#adminuser").addClass("active");
+    }
 </script>
 </body>
 </html>

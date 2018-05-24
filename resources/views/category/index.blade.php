@@ -1,16 +1,16 @@
 @extends('layouts.main')
 @section('title')
-    <title>文章列表</title>
+    <title>后台首页</title>
 @endsection
 @section('content')
     <div class="main" id="mainWrapper">
-        <h3>内容</h3>
+        <h3>分类管理</h3>
         <div class="wrapper table-scroll-wrapper">
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
-                            <a href="/manage/add?pid={{$category->id}}"><button class="btn btn-success btn-xs pull-right">
+                            <a href="/category/create?base_id={{$base_id}}"><button class="btn btn-success btn-xs pull-right">
                                     <i class="glyphicon glyphicon-plus"></i>
                                     添加
                                 </button></a>
@@ -19,7 +19,7 @@
                         <div class="panel-body" style="">
                             <div class="row">
                                 <div class="col-md-12 col-xs-12">
-                                    <form class="form-inline" method="get">
+                                    <form class="form-inline">
 
                                         <div class="row">
                                             <div class="col-md-12">
@@ -27,37 +27,30 @@
                                                 <div class="form-group input-group-sm">
                                                     <div class="input-group">
                                                         <div class="input-group-addon">状态</div>
-                                                        <select id="status" name="status" class="form-control">
-                                                            <option value="0" {{($request->input('status')==null || $request->input('status') ==0)?'':'selected'}}>
+                                                        <select id="order_sale_type" name="sale_type" class="form-control">
+                                                            <option value="0" selected="selected">
                                                                 全部
                                                             </option>
-                                                            <option value="1" {{($request->input('status')==1)?'selected':''}}>
+                                                            <option value="1">
                                                                 不通过</option>
-                                                            <option value="2" {{($request->input('status') ==2)?'selected':''}}>
+                                                            <option value="2">
                                                                 待审核</option>
-                                                            <option value="3" {{($request->input('status') ==3)?'selected':''}}>
+                                                            <option value="3">
                                                                 通过</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group input-group-sm">
                                                     <div class="input-group">
-                                                        <div class="input-group-addon">标题</div>
-                                                        <input value="{{$request->input('title')}}" placeholder="文章标题" id="title" class="form-control" name="title" type="text">
+                                                        <div class="input-group-addon">用户名</div>
+                                                        <input value="" placeholder="用户名" id="" class="form-control" name="name" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="form-group input-group-sm">
                                                     <div class="input-group">
-                                                        <div class="input-group-addon">开始时间</div>
-                                                        <input id="start_from" value="{{$request->input('start_time')}}" name="start_time" class="form-control" placeholder="创建起始日期" onfocus="WdatePicker();" type="text">
-                                                    </div> 至
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">结束时间</div>
-                                                        <input id="end_from" value="{{$request->input('end_time')}}" name="end_time" class="form-control" placeholder="创建结束日期" onfocus="WdatePicker();" type="text">
+                                                        <div class="input-group-addon">手机号</div>
+                                                        <input class="form-control" name="mobile" placeholder="手机号" value="" id="" type="text">
                                                     </div>
-                                                </div>
-                                                <div class="form-group input-group-sm">
-                                                    <button type="submit" class="btn btn-primary btn-xs">检索</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,19 +68,15 @@
                             <thead>
                             <tr>
                                 <th>序号</th>
-                                <th>标题</th>
-                                <th>出处</th>
-                                <th>状态</th>
+                                <th>分类名称</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
-                            @foreach($articles as $article)
+                            @foreach($categories as $category)
                                 <tr>
-                                    <td>{{$article->number}}</td>
-                                    <td>{{$article->title}}</td>
-                                    <td>{{$article->source}}</td>
-                                    <td>{{App\Constants\ArticleStatus::trans($article->status)}}</td>
-                                    <td><a href="">删除</a>／<a href="/manage/edit?pid={{$article->category_id}}&id={{$article->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
+                                    <td>{{$category->number}}</td>
+                                    <td>{{$category->name}}</td>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$category->id}}">删除</a>/<a href="/category/edit?id={{$category->id}}">修改</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -96,4 +85,24 @@
             </div>
         </div>
     </div>
+    <script>
+        function del(obj){
+            var judge = confirm("确认删除");
+            if(judge){
+                var _token = '{{csrf_token()}}';
+                var id = $(obj).attr('data-id');
+                var data = {id:id,_token:_token};
+                $.ajax({
+                    url:'/category/del',
+                    data:data,
+                    dataType:'json',
+                    type:'POST',
+                    success:function(data){
+                        alert(data.msg);
+                        window.location.href="";
+                    }
+                });
+            }
+        }
+    </script>
 @endsection

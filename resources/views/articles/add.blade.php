@@ -9,8 +9,9 @@
             <div class="row">
                 <div class='col-md-12'>
                     <div class="table-responsive">
-                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/article/postCreate">
+                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/manage/postCreate">
                             {{csrf_field()}}
+                            <input type="hidden" type="" name="category_id" value="{{$category_id}}"/>
                             <table class="table table-condensed table-add">
                                 <tr>
                                     <th style="width:10%;">
@@ -23,15 +24,46 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="">分类:</label>
+                                        <label for="case_foreman_id">序号:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="ui-select span5">
-                                            <select name="type" id="" class="form-control">
-                                                @foreach($classifies as $classify)
-                                                <option value="{{$classify->id}}">{{$classify->name}}</option>
-                                                @endforeach
-                                            </select>
+                                        <div class="form-group">                                                                <input type="text" name="number" class="form-control" id="inputPassword2" placeholder="序号">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">市场价:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" name="market_price" class="form-control" id="inputPassword2" placeholder="市场价">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">会员价:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" name="member_price" class="form-control" id="inputPassword2" placeholder="会员价">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">热卖价:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" name="hot_price" class="form-control" id="inputPassword2" placeholder="热卖价">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">出处:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" name="source" class="form-control" id="inputPassword2" placeholder="出处">
                                         </div>
                                     </td>
                                 </tr>
@@ -45,10 +77,28 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">描述:</label>
+                                        <label for="case_foreman_id">网页标题:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <textarea type="text" rows="4" name="desc" cols="100" class="form-control" id="inputPassword2" placeholder="描述"></textarea>
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_title" size="70" maxlength="250" placeholder="网页标题">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">meta关键字:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_keyword" value=""  size="70" maxlength="250" placeholder="meta关键字">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">meta描述:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" size="70" maxlength="250" class="form-control" id="inputPassword2" value="" name="meta_description" placeholder="meta描述">
                                         </div>
                                     </td>
                                 </tr>
@@ -68,20 +118,6 @@
                                                 <input type="radio" name="status" id="inlineRadio3" value="3"> 通过
                                             </label>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th><label for="case_floor_space">书签:</label>
-                                    </th>
-                                    <td><label class="checkbox-inline">
-                                            <input type="checkbox" id="inlineCheckbox1" name="tag" value="option1"> 1
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="inlineCheckbox2" name="tag" value="option2"> 2
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="inlineCheckbox3" name="tag" value="option3"> 3
-                                        </label>
                                     </td>
                                 </tr>
                                 <tr>

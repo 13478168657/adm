@@ -4,13 +4,14 @@
 @endsection
 @section('content')
     <div class="main" id="mainWrapper">
-        <h3>编辑文章</h3>
+        <h3>文章编辑</h3>
         <div class="wrapper table-scroll-wrapper">
             <div class="row">
                 <div class='col-md-12'>
                     <div class="table-responsive">
-                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/article/postEdit">
+                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/manage/postEdit">
                             {{csrf_field()}}
+                            <input type="hidden" type="" name="category_id" value="{{$category_id}}"/>
                             <input type="hidden" name="id" value="{{$article->id}}"/>
                             <table class="table table-condensed table-add">
                                 <tr>
@@ -18,21 +19,52 @@
                                         <label for="case_foreman_id">标题:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="title" value="{{$article->title}}" class="form-control" placeholder="标题">
+                                        <div class="form-group">                                                                <input type="text" name="title" value="{{$article->title}}" class="form-control" id="inputPassword2" placeholder="标题">
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="">分类:</label>
+                                        <label for="case_foreman_id">序号:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="ui-select span5">
-                                            <select name="type" id="" class="form-control">
-                                                @foreach($classifies as $classify)
-                                                    <option value="{{$classify->id}}">{{$classify->name}}</option>
-                                                @endforeach
-                                            </select>
+                                        <div class="form-group">                                                                <input type="text" name="number" value="{{$article->number}}" class="form-control" id="inputPassword2" placeholder="序号">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">市场价:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" value="{{$article->market_price}}" name="market_price" class="form-control" id="inputPassword2" placeholder="市场价">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">会员价:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" value="{{$article->member_price}}" name="member_price" class="form-control" id="inputPassword2" placeholder="会员价">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">热卖价:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" value="{{$article->hot_price}}" name="hot_price" class="form-control" id="inputPassword2" placeholder="热卖价">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">出处:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" name="source" value="{{$article->source}}" class="form-control" id="inputPassword2" placeholder="出处">
                                         </div>
                                     </td>
                                 </tr>
@@ -41,20 +73,39 @@
                                         <label for="case_foreman_id">标题图:</label>
                                     </th>
                                     <td style="width:90%;">                                                                                      <input type="file" name="thumbPic" class="" id="">
-                                        <div class="image_upload">
-                                            @if($article->thumbPic)
-                                                <img src="{{env('IMG_URL')}}/{{$article->thumbPic}}" class="img"/>
-                                            @endif
+                                        <div class="image_upload"></div>
+                                        @if($article->thumbPic)
+                                        <div class="img_span">
+                                            <img class="img" src="{{env('IMG_URL').'/'.$article->thumbPic}}" style="width:80px;height:80px;margin-left:8px;"><span onclick="delImgUrl(this);" class="image_icon"></span>
                                         </div>
-                                        <input type="hidden" name="image"/>
+                                        @endif
+                                        <input type="hidden" name="image" value=""/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">描述:</label>
+                                        <label for="case_foreman_id">网页标题:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <textarea type="text" rows="4" name="desc" cols="100" class="form-control" placeholder="描述">{{$article->desc}}</textarea>
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_title" value="{{$article->meta_title}}" size="70" maxlength="250" placeholder="网页标题">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">meta关键字:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_keyword" value="{{$article->meta_keyword}}"  size="70" maxlength="250" placeholder="meta关键字">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">meta描述:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" size="70" maxlength="250" class="form-control" id="inputPassword2" value="{{$article->meta_description}}" name="meta_description" placeholder="meta描述">
                                         </div>
                                     </td>
                                 </tr>
@@ -77,20 +128,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th><label for="case_floor_space">书签:</label>
-                                    </th>
-                                    <td><label class="checkbox-inline">
-                                            <input type="checkbox" id="inlineCheckbox1" name="tag" value="option1"> 1
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="inlineCheckbox2" name="tag" value="option2"> 2
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="inlineCheckbox3" name="tag" value="option3"> 3
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <th><label for="case_description">内容:</label>
                                     </th>
                                     <td>
@@ -110,14 +147,14 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
     <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
-    <script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js"></script>
     <script type="text/javascript">
         var ue = UE.getEditor('editor');
     </script>
-@endsection
-@section('script')
+    <script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js"></script>
     <!-- page specific plugin scripts -->
     <script src="/js/upload.js"></script>
     <script src="/js/mobileBUGFix.mini.js"></script>
@@ -132,7 +169,7 @@
             //type : 'image/png,image/jpg,image/jpeg,image/pjpeg,image/gif,image/bmp,image/x-png',
             before : function(blob){
                 var img = '<div class="img_span">'+'<img src="'+blob+'" class="img"/><span onclick="delImgUrl(this);" class="image_icon"></span></div>';
-                $('.image_upload').html(img);
+                $('.image_upload').append(img);
                 $("input[name='image']").val(blob);
             },
             error : function(res){
@@ -145,7 +182,6 @@
         });
         function delImgUrl(obj){
             $(obj).parent().remove();
-            $("input[name='image']").val('');
         }
     </script>
 @endsection

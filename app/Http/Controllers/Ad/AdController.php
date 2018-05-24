@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Advertisement;
 use App\Models\AdSpace;
+use App\Utils\ImageUpload;
 class AdController extends Controller
 {
     public function __construct(){

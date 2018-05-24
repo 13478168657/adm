@@ -11,12 +11,13 @@
 |
 */
 Route::group(['middleware'=>['auth','checkUserPermission']],function(){
-    Route::get('/', 'Article\ArticleController@index');
-    Route::get('article/list', 'Article\ArticleController@index');
-    Route::get('article/add', 'Article\ArticleController@add');
-    Route::post('article/postCreate', 'Article\ArticleController@postCreate');
-    Route::get('article/edit', 'Article\ArticleController@edit');
-    Route::post('article/postEdit', 'Article\ArticleController@postEdit');
+    Route::get('/', 'Home\HomeController@index');
+    Route::get('manage/info', 'Article\ArticleController@index');
+    Route::get('manage/add', 'Article\ArticleController@add');
+    Route::post('manage/postCreate', 'Article\ArticleController@postCreate');
+    Route::get('manage/edit', 'Article\ArticleController@edit');
+    Route::post('manage/postEdit', 'Article\ArticleController@postEdit');
+
     Route::post('article/upload', 'Article\ArticleController@upload');
     Route::get('position/list', 'Article\ClassifyController@index');
     Route::get('position/add', 'Article\ClassifyController@add');
@@ -78,7 +79,25 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
     Route::get('ad/edit','Ad\AdController@edit');
     Route::post('ad/postEdit','Ad\AdController@postEdit');
     Route::post('ad/del','Ad\AdController@delete');
+    /*
+     * 分类管理
+     */
+    Route::get('category/list','Category\CategoryController@index');
+    Route::get('category/create','Category\CategoryController@create');
+    Route::post('category/postCreate','Category\CategoryController@postCreate');
+    Route::get('category/edit','Category\CategoryController@edit');
+    Route::post('category/postEdit','Category\CategoryController@postEdit');
+    Route::post('category/del','Category\CategoryController@del');
 
+    /*
+     * 联系我们
+     */
+    Route::get('consult/list','Consult\ConsultController@index');
+    Route::get('consult/create','Consult\ConsultController@create');
+    Route::post('consult/postCreate','Consult\ConsultController@postCreate');
+    Route::get('consult/edit','Consult\ConsultController@edit');
+    Route::post('consult/postEdit','Consult\ConsultController@postEdit');
+    Route::post('consult/del','Consult\ConsultController@del');
 });
 Route::post('auth/login','Auth\LoginController@postLogin');
 Route::get('logout','Auth\LoginController@logout');
