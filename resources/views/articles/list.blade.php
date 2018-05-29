@@ -10,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
-                            <a href="/manage/add?pid={{$category->id}}"><button class="btn btn-success btn-xs pull-right">
+                            <a href="/manage/add?pid={{$category->id}}&key={{$key}}"><button class="btn btn-success btn-xs pull-right">
                                     <i class="glyphicon glyphicon-plus"></i>
                                     添加
                                 </button></a>

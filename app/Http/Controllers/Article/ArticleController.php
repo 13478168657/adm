@@ -29,6 +29,7 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
         $category_number = $request->input('id');
+        $key = $request->input('key');
         $category = Category::where('category_num',$category_number)->first();
         $article = new Article();
         if($request->input('status')){
@@ -45,13 +46,14 @@ class ArticleController extends Controller
         }
         $article = $article->where('category_number',$category_number);
         $articles = $article->paginate(15);
-        return view('articles.list',['articles'=>$articles,'request'=>$request,'category'=>$category]);
+        return view('articles.list',['articles'=>$articles,'request'=>$request,'category'=>$category,'key'=>$key]);
     }
 
     public function add(Request $request){
+        $key = $request->input('key');
         $classify = ArticleClassify::get();
         $classifyList = ClassifyUtil::getTree($classify ,0,0);
-        return view('articles.add',['classifies'=>$classifyList,'category_id'=>$request->input('pid')]);
+        return view('articles.add',['classifies'=>$classifyList,'category_id'=>$request->input('pid'),'key'=>$key]);
     }
     /*
      * 添加文章
@@ -59,6 +61,7 @@ class ArticleController extends Controller
     public function postCreate(Request $request){
         $article = new Article();
 //        dd($request->all());
+        $key = $request->input('key');
         $category_id = $request->input('category_id');
         $category = Category::where('id',$category_id)->first();
 
@@ -81,7 +84,7 @@ class ArticleController extends Controller
         }
         $article->creator_user_id = 1;
         if($article->save()){
-            return redirect('/manage/info?id='.$article->category_number);
+            return redirect('/manage/info?key='.$key.'&id='.$article->category_number);
         }
     }
     /*
@@ -89,11 +92,12 @@ class ArticleController extends Controller
      */
     public function edit(Request $request){
         $id = $request->input('id');
+        $key = $request->input('key');
         $category_id = $request->input('pid');
         $article = Article::where('id',$id)->first();
         $classify = ArticleClassify::get();
         $classifyList = ClassifyUtil::getTree($classify ,0,0);
-        return view('articles.edit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id]);
+        return view('articles.edit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id,'key'=>$key]);
     }
     /*
      * 编辑处理
@@ -101,6 +105,7 @@ class ArticleController extends Controller
     public function postEdit(Request $request){
 //        dd($request->all());
         $article = Article::where('id',$request->input('id'))->first();
+        $key = $request->input('key');
         $article->title = $request->input('title');
         $article->number = intval($request->input('number'));
         $article->meta_description = $request->input('meta_description');
@@ -118,7 +123,7 @@ class ArticleController extends Controller
         }
         $article->creator_user_id = $request->user()->id;
         if($article->save()){
-            return redirect('/manage/info?id='.$article->category_number);
+            return redirect('/manage/info?key='.$key.'&id='.$article->category_number);
         }
     }
     /*

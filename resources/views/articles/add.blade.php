@@ -11,7 +11,8 @@
                     <div class="table-responsive">
                         <form class="form-inline" method="post" enctype="multipart/form-data" action="/manage/postCreate">
                             {{csrf_field()}}
-                            <input type="hidden" type="" name="category_id" value="{{$category_id}}"/>
+                            <input type="hidden" name="category_id" value="{{$category_id}}"/>
+                            <input type="hidden" name="key" value="{{$key}}"/>
                             <table class="table table-condensed table-add">
                                 <tr>
                                     <th style="width:10%;">

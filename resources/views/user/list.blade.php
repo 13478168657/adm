@@ -80,7 +80,7 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->mobile}}</td>
                                 <td>{{App\Constants\UserStatus::trans($user->status)}}</td>
-                                <td><a href="">删除</a>/<a href="/user/edit?id={{$user->id}}">修改</a></td>
+                                <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$user->id}}">删除</a>/<a href="/user/edit?id={{$user->id}}">修改</a></td>
                             </tr>
                             @endforeach
                         </table>
@@ -89,4 +89,24 @@
             </div>
         </div>
     </div>
+    <script>
+        function del(obj){
+            var judge = confirm("确认删除");
+            if(judge){
+                var _token = '{{csrf_token()}}';
+                var id = $(obj).attr('data-id');
+                var data = {id:id,_token:_token};
+                $.ajax({
+                    url:'/user/del',
+                    data:data,
+                    dataType:'json',
+                    type:'POST',
+                    success:function(data){
+                        alert(data.msg);
+                        window.location.href="";
+                    }
+                });
+            }
+        }
+    </script>
 @endsection

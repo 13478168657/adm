@@ -121,7 +121,7 @@
             before : function(blob){
                 var img = '<div class="img_span">'+'<img src="'+blob+'" class="img"/><span onclick="delImgUrl(this);" class="image_icon"></span></div>';
                 $('.image_upload').append(img);
-                $("input[name='image']").val(img);
+                $("input[name='image']").val(blob);
             },
             error : function(res){
                 $('#img').attr('src','');

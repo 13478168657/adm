@@ -40,21 +40,6 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>
-                                        <label for="case_title">所属组:</label>
-                                    </th>
-                                    <td>
-                                        <div class="form-group">
-                                            @foreach($groups as $group)
-                                                <label class="checkbox-inline">
-                                                    @if(in_array($group->id,$userGroup))
-                                                    <input type="checkbox" id="inlineCheckbox1" checked name="groups[]" value="{{$group->id}}"/>
-                                                    @else
-                                                        <input type="checkbox" id="inlineCheckbox1" name="groups[]" value="{{$group->id}}"/> @endif {{$group->name}}</label>
-                                            @endforeach
-                                        </div>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <th>

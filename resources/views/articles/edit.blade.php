@@ -12,6 +12,7 @@
                         <form class="form-inline" method="post" enctype="multipart/form-data" action="/manage/postEdit">
                             {{csrf_field()}}
                             <input type="hidden" type="" name="category_id" value="{{$category_id}}"/>
+                            <input type="hidden" name="key" value="{{$key}}"/>
                             <input type="hidden" name="id" value="{{$article->id}}"/>
                             <table class="table table-condensed table-add">
                                 <tr>

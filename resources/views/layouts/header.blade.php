@@ -4,7 +4,7 @@
             <a href="pull-left" href="javascript:void(0)">
                 <i class="glyphicon glyphicon-list"></i>
             </a>
-            <a class="nav-company" href="">企业管理后台</a>
+            <a class="nav-company" href="">系统后台管理</a>
         </div>
         <div class="nav-right">
             <ul class="nav nav-list">

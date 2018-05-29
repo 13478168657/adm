@@ -47,7 +47,7 @@ class ImageUpload{
         $clientSize = filesize($destDirectory.$filename);
         return  ['status'=>0,'imgurl'=>'thumb' . DIRECTORY_SEPARATOR . $subDirectory . $filename];
     }
-
+    
     private function buildPasteFileName($extension){
         $fi = microtime(true).rand(0,99999);
         return $fi.'.'.$extension;

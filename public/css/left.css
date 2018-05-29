@@ -53,6 +53,9 @@ nav.sidebar .menuItems{
 	height:100%;
 	overflow-y:auto;
 }
+ul.menuItems .side-ul-menu{
+	display: none;
+}
 ul.menuItems > li > a{
 	display:block;
 	color:#515253;
@@ -98,8 +101,11 @@ ul.menuItems > li ul.side-ul-menu > li > a:hover {
 	text-decoration: none;
 }
 ul.menuItems > li > ul.side-ul-menu > li.active {
-
-	background-color: #ffffff;
 	color: #23b7e5;
+	background-color: #ffffff;
 	border-color: #23b7e5;
+}
+
+ul.menuItems > li > ul.side-ul-menu > li.active a{
+	color: #23b7e5;
 }

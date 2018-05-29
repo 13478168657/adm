@@ -23,8 +23,8 @@ class UserController extends Controller
      * 添加
      */
     public function add(Request $request){
-        $groups = Group::get();
-        return view('user.add',['groups'=>$groups]);
+        // $groups = Group::get();
+        return view('user.add');
     }
     /*
      * 处理数据
@@ -34,56 +34,68 @@ class UserController extends Controller
         $email = $request->input('email');
         $password = bcrypt(md5($request->input('password')));
         $status = $request->input('status');
-        $groups = $request->input('groups');
+        // $groups = $request->input('groups');
         $user = new User();
         $user->password = $password;
         $user->name = $name;
         $user->email = $email;
         $user->status = $status;
         if($user->save()){
-            $user_id = $user->id;
-            foreach($groups as $g){
-                $userGroup = new UserGroup();
-                $userGroup->user_id = $user_id;
-                $userGroup->group_id = $g;
-                $userGroup->save();
-            }
+            // $user_id = $user->id;
+            // foreach($groups as $g){
+            //     $userGroup = new UserGroup();
+            //     $userGroup->user_id = $user_id;
+            //     $userGroup->group_id = $g;
+            //     $userGroup->save();
+            // }
             return redirect('/user/list');
         }
     }
     public function edit(Request $request){
         $id = $request->input('id');
         $user = User::where('id',$id)->first();
-        $userGroup = $user->group;
-        $groupsArr = [];
-        foreach($userGroup as $group){
-            $groupsArr[] = $group->id;
-        }
-        $groups = Group::get();
+        // $userGroup = $user->group;
+        // $groupsArr = [];
+        // foreach($userGroup as $group){
+        //     $groupsArr[] = $group->id;
+        // }
+        // $groups = Group::get();
 //        dd($groups);
-        return view('user.edit',['groups'=>$groups,'user'=>$user,'userGroup'=>$groupsArr]);
+        return view('user.edit',['user'=>$user]);
     }
     public function postEdit(Request $request){
         $id = $request->input('id');
         $user = User::where('id',$id)->first();
         $name = $request->input('name');
         $email = $request->input('email');
-//        $password = bcrypt(md5($request->input('password')));
+        $password = bcrypt(md5(trim($request->input('password'))));
+        if(!empty($password)){
+            $user->password = bcrypt(md5(trim($request->input('password'))));
+        }
         $status = $request->input('status');
-        $groups = $request->input('groups');
+        // $groups = $request->input('groups');
 //        $user->password = $password;
         $user->name = $name;
         $user->email = $email;
         $user->status = $status;
         if($user->save()){
-            $user_id = $user->id;
-            foreach($groups as $g){
-                $userGroup = new UserGroup();
-                $userGroup->user_id = $user_id;
-                $userGroup->group_id = $g;
-                $userGroup->save();
-            }
+            // $user_id = $user->id;
+            // foreach($groups as $g){
+            //     $userGroup = new UserGroup();
+            //     $userGroup->user_id = $user_id;
+            //     $userGroup->group_id = $g;
+            //     $userGroup->save();
+            // }
             return redirect('/user/list');
+        }
+    }
+
+    public function del(Request $request){
+        $result = User::where('id',$id)->delete();
+        if($result){
+            return json_decode(['code'=>0,'msg'=>'删除成功']);
+        }else{
+            return json_encode(['code'=>1,'msg'=>'删除失败']);
         }
     }
 }

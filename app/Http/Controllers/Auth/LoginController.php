@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Redirect;
-
+use Validator;
 class LoginController extends Controller
 {
     /*
@@ -29,19 +29,24 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
     public function logout(Request $request){
         Auth::logout();
         return redirect('/');
     }
     public function postLogin(Request $request){
+        $validator = Validator::make($request->all(), [
+            'captcha' => 'required|captcha'
+        ]);
+        if ($validator->fails()) {
+            return json_encode(['code'=>2,'msg'=>'验证码有误']);
+        }
         $name = $request->input('name');
         $password = $request->input('password');
         $remember = $request->input('remember');
         if (Auth::attempt(['email' => $name, 'password' => md5($password)])) {
-            return redirect('/article/list');
+            return json_encode(['code'=>0,'msg'=>'登陆成功']);
         }else{
-            return redirect('/login');
+            return json_encode(['code'=>1,'msg'=>'登陆失败']);
         }
     }
 }

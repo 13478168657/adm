@@ -29,6 +29,7 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
     Route::get('user/add', 'User\UserController@add');
     Route::get('user/edit', 'User\UserController@edit');
     Route::post('user/postEdit', 'User\UserController@postEdit');
+    Route::post('user/del','User\UserController@del');
     Route::post('user/postCreate', 'User\UserController@postCreate');
     Route::get('permission/index', 'User\PermissionController@index');
     Route::get('permission/add', 'User\PermissionController@add');
@@ -98,6 +99,36 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
     Route::get('consult/edit','Consult\ConsultController@edit');
     Route::post('consult/postEdit','Consult\ConsultController@postEdit');
     Route::post('consult/del','Consult\ConsultController@del');
+
+    /*
+     *付款方式
+     */
+    Route::get('payment/list','Payment\PaymentController@index');
+    Route::get('payment/create','Payment\PaymentController@create');
+    Route::post('payment/postCreate','Payment\PaymentController@postCreate');
+    Route::get('payment/edit','Payment\PaymentController@edit');
+    Route::post('payment/postEdit','Payment\PaymentController@postEdit');
+    Route::post('payment/del','Payment\PaymentController@del');
+    /*
+     *发货须知
+     */
+    Route::get('notice/list','Notice\NoticeController@index');
+    Route::get('notice/create','Notice\NoticeController@create');
+    Route::post('notice/postCreate','Notice\NoticeController@postCreate');
+    Route::get('notice/edit','Notice\NoticeController@edit');
+    Route::post('notice/postEdit','Notice\NoticeController@postEdit');
+    Route::post('notice/del','Notice\NoticeController@del');
+
+    /*
+     *批发说明
+     */
+    Route::get('instruction/list','Instruction\InstructionController@index');
+    Route::get('instruction/create','Instruction\InstructionController@create');
+    Route::post('instruction/postCreate','Instruction\InstructionController@postCreate');
+    Route::get('instruction/edit','Instruction\InstructionController@edit');
+    Route::post('instruction/postEdit','Instruction\InstructionController@postEdit');
+    Route::post('instruction/del','Instruction\InstructionController@del');
+
 });
 Route::post('auth/login','Auth\LoginController@postLogin');
 Route::get('logout','Auth\LoginController@logout');
