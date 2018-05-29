@@ -17,6 +17,7 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
     Route::post('manage/postCreate', 'Article\ArticleController@postCreate');
     Route::get('manage/edit', 'Article\ArticleController@edit');
     Route::post('manage/postEdit', 'Article\ArticleController@postEdit');
+    Route::post('manage/del', 'Article\ArticleController@del');
 
     Route::post('article/upload', 'Article\ArticleController@upload');
     Route::get('position/list', 'Article\ClassifyController@index');

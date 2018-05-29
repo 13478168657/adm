@@ -126,6 +126,16 @@ class ArticleController extends Controller
             return redirect('/manage/info?key='.$key.'&id='.$article->category_number);
         }
     }
+
+    public funciton del(Request $del){
+        $id = $request->input('id');
+        $result = Article::where('id',$id)->delete();
+        if($result){
+            return json_encode(['code'=>0,'msg'=>'删除成功']);
+        }else{
+            return json_encode(['code'=>1,'msg'=>'删除失败']);
+        }
+    }
     /*
      *标题图上传
      */
