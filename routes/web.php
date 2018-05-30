@@ -130,6 +130,15 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
     Route::post('instruction/postEdit','Instruction\InstructionController@postEdit');
     Route::post('instruction/del','Instruction\InstructionController@del');
 
+    /*
+     * 基本配置
+     */
+    Route::get('base/list','Base\BaseConfigController@index');
+    Route::get('base/create','Base\BaseConfigController@create');
+    Route::post('base/postCreate','Base\BaseConfigController@postCreate');
+    Route::get('base/edit','Base\BaseConfigController@edit');
+    Route::post('base/postEdit','Base\BaseConfigController@postEdit');
+    Route::post('base/del','Base\BaseConfigController@del');
 });
 Route::post('auth/login','Auth\LoginController@postLogin');
 Route::get('logout','Auth\LoginController@logout');

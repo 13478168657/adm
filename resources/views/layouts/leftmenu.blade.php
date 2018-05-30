@@ -59,6 +59,15 @@ $categoryA = Category::where('base_id',1)->orderby('number','asc')->get();
                     <li class="adSpace-list"><a href="/adSpace/list">广告位列表</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="glyphicon glyphicon-fire"></i>系统管理
+                    <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
+                </a>
+                <ul class="side-ul-menu">
+                    <li class="ad_position base-list"><a href="/base/list">网站基本设置</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </div>
