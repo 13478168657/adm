@@ -74,6 +74,7 @@
                                     </th>
                                     <td style="width:90%;">                                                                                      <input type="file" name="thumbPic" class="" id="">
                                         <div class="image_upload"></div>
+            <input type="hidden" name="image" value=""/>
                                     </td>
                                 </tr>
                                 <tr>
