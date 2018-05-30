@@ -57,7 +57,7 @@
                                 <tr>
                                     <td>{{$link->name}}</td>
                                     <td>{{$link->url}}</td>
-                                    <td><a href="">删除</a>／<a href="/link/edit?id={{$link->id}}">修改</a>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$link->id}}">删除</a>／<a href="/link/edit?id={{$link->id}}">修改</a>
                                 </tr>
                             @endforeach
                         </table>
@@ -66,4 +66,24 @@
             </div>
         </div>
     </div>
+    <script>
+        function del(obj){
+            var judge = confirm("确认删除");
+            if(judge){
+                var _token = '{{csrf_token()}}';
+                var id = $(obj).attr('data-id');
+                var data = {id:id,_token:_token};
+                $.ajax({
+                    url:'/link/del',
+                    data:data,
+                    dataType:'json',
+                    type:'POST',
+                    success:function(data){
+                        alert(data.msg);
+                        window.location.href="";
+                    }
+                });
+            }
+        }
+    </script>
 @endsection

@@ -48,6 +48,12 @@ class LinkController extends Controller
     }
 
     public function delete(Request $request){
-
+        $id = $request->input('id');
+        $result = Link::where('id',$id)->delete();
+        if($result){
+            return json_encode(['code'=>0,'msg'=>'删除成功']);
+        }else{
+            return json_encode(['code'=>1,'msg'=>'删除失败']);
+        }
     }
 }
