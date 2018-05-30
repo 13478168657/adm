@@ -127,7 +127,7 @@ class ArticleController extends Controller
         }
     }
 
-    public funciton del(Request $del){
+    public function del(Request $del){
         $id = $request->input('id');
         $result = Article::where('id',$id)->delete();
         if($result){
