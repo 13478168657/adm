@@ -43,7 +43,7 @@
                                     <td>{{$ad->start}}</td>
                                     <td>{{$ad->end}}</td>
                                     <td>{{App\Constants\ArticleStatus::trans($ad->status)}}</td>
-                                    <td><a href="/ad/del">删除</a>／<a href="/ad/edit?id={{$ad->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$ad->id}}">删除</a>／<a href="/ad/edit?id={{$ad->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -52,4 +52,24 @@
             </div>
         </div>
     </div>
+    <script>
+        function del(obj){
+            var judge = confirm("确定删除？");
+            if(judge){
+                var _token = '{{csrf_token()}}';
+                var id = $(obj).attr('data-id');
+                var data = {id:id,_token:_token};
+                $.ajax({
+                    url:'/ad/del',
+                    data:data,
+                    dataType:'json',
+                    type:'POST',
+                    success:function(data){
+                        alert(data.msg);
+                        window.location.href="";
+                    }
+                });
+            }
+        }
+    </script>
 @endsection
