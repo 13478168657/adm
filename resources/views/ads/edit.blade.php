@@ -53,7 +53,7 @@
                                         <label for="case_foreman_id">开始时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="start" value="{{$advertisement->start}}" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="start" onfocus="WdatePicker();" value="{{date('Y-m-d',strtotime($advertisement->start))}}" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -62,7 +62,7 @@
                                         <label for="case_foreman_id">结束时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" value="{{$advertisement->end}}" name="end" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" onfocus="WdatePicker();" value="{{date('Y-m-d',strtotime($advertisement->end))}}" name="end" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
                                         </div>
                                     </td>
                                 </tr>

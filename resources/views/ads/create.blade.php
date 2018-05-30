@@ -49,7 +49,7 @@
                                         <label for="case_foreman_id">开始时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="start" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="start" onfocus="WdatePicker();" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -58,7 +58,7 @@
                                         <label for="case_foreman_id">结束时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="end" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="end" onfocus="WdatePicker();" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
                                         </div>
                                     </td>
                                 </tr>

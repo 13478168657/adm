@@ -16,49 +16,49 @@
                             </button></a>
                             <h6 class="panel-title">快捷键</h6>
                         </div>
-                        <div class="panel-body" style="">
-                            <div class="row">
-                                <div class="col-md-12 col-xs-12">
-                                    <form class="form-inline">
+                        {{--<div class="panel-body" style="">--}}
+                            {{--<div class="row">--}}
+                                {{--<div class="col-md-12 col-xs-12">--}}
+                                    {{--<form class="form-inline">--}}
 
-                                        <div class="row">
-                                            <div class="col-md-12">
+                                        {{--<div class="row">--}}
+                                            {{--<div class="col-md-12">--}}
 
-                                                <div class="form-group input-group-sm">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">状态</div>
-                                                        <select id="order_sale_type" name="sale_type" class="form-control">
-                                                            <option value="0" selected="selected">
-                                                                全部
-                                                            </option>
-                                                            <option value="1">
-                                                                不通过</option>
-                                                            <option value="2">
-                                                                待审核</option>
-                                                            <option value="3">
-                                                                通过</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group input-group-sm">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">用户名</div>
-                                                        <input value="" placeholder="用户名" id="" class="form-control" name="name" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group input-group-sm">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">手机号</div>
-                                                        <input class="form-control" name="mobile" placeholder="手机号" value="" id="" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                                {{--<div class="form-group input-group-sm">--}}
+                                                    {{--<div class="input-group">--}}
+                                                        {{--<div class="input-group-addon">状态</div>--}}
+                                                        {{--<select id="order_sale_type" name="sale_type" class="form-control">--}}
+                                                            {{--<option value="0" selected="selected">--}}
+                                                                {{--全部--}}
+                                                            {{--</option>--}}
+                                                            {{--<option value="1">--}}
+                                                                {{--不通过</option>--}}
+                                                            {{--<option value="2">--}}
+                                                                {{--待审核</option>--}}
+                                                            {{--<option value="3">--}}
+                                                                {{--通过</option>--}}
+                                                        {{--</select>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="form-group input-group-sm">--}}
+                                                    {{--<div class="input-group">--}}
+                                                        {{--<div class="input-group-addon">用户名</div>--}}
+                                                        {{--<input value="" placeholder="用户名" id="" class="form-control" name="name" type="text">--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="form-group input-group-sm">--}}
+                                                    {{--<div class="input-group">--}}
+                                                        {{--<div class="input-group-addon">手机号</div>--}}
+                                                        {{--<input class="form-control" name="mobile" placeholder="手机号" value="" id="" type="text">--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</form>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
             </div>
             <div class="row">
