@@ -25,14 +25,14 @@
                     <input type="password" id="password" name="password" class="login_input" >
                     <span id="password-msg" class="error"></span>
                 </li>
-                <li class="login-item verify">
-                    <span>验证码：</span>
-                    <input type="text" id="captcha" name="captcha" class="login_input verify_input">
-                    <img  class="captcha"  src="{{ captcha_src() }}"  onclick="this.src='/captcha/default?'+Math.random()"  title="点击图片更新验证码"/>
-                </li>
-                <li class="login-item verify">
-                    <span id="captcha-msg" class="error"></span>
-                </li>
+                {{--<li class="login-item verify">--}}
+                    {{--<span>验证码：</span>--}}
+                    {{--<input type="text" id="captcha" name="captcha" class="login_input verify_input">--}}
+                    {{--<img  class="captcha"  src="{{ captcha_src() }}"  onclick="this.src='/captcha/default?'+Math.random()"  title="点击图片更新验证码"/>--}}
+                {{--</li>--}}
+                {{--<li class="login-item verify">--}}
+                    {{--<span id="captcha-msg" class="error"></span>--}}
+                {{--</li>--}}
                 <div class="clearfix"></div>
                 <li class="login-sub">
                     <input type="submit" name="Submit" value="登录" onclick="postLogin()" />
@@ -61,9 +61,9 @@
     function postLogin(){
         var name = $("#name").val();
         var password = $("#password").val();
-        var captcha = $("#captcha").val();
+//        var captcha = $("#captcha").val();
         var token =  '{{csrf_token()}}';
-        var data = {'name':name,'password':password,'captcha':captcha,'_token':token};
+        var data = {'name':name,'password':password,'_token':token};
         $.ajax({
             url:'/auth/login',
             data:data,

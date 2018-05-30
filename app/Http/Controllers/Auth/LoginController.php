@@ -34,12 +34,12 @@ class LoginController extends Controller
         return redirect('/');
     }
     public function postLogin(Request $request){
-        $validator = Validator::make($request->all(), [
-            'captcha' => 'required|captcha'
-        ]);
-        if ($validator->fails()) {
-            return json_encode(['code'=>2,'msg'=>'验证码有误']);
-        }
+//        $validator = Validator::make($request->all(), [
+//            'captcha' => 'required|captcha'
+//        ]);
+//        if ($validator->fails()) {
+//            return json_encode(['code'=>2,'msg'=>'验证码有误']);
+//        }
         $name = $request->input('name');
         $password = $request->input('password');
         $remember = $request->input('remember');
