@@ -70,7 +70,7 @@
 
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">网页标题:</label>
+                                        <label for="case_foreman_id">联系地址:</label>
                                     </th>
                                     <td style="width:90%;">
                                         <div class="form-group">                                                                <textarea id="editor" name="address" type="text" style="width:200px;height:50px;"></textarea>
