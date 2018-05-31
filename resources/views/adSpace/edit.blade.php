@@ -18,7 +18,7 @@
                                         <label for="case_foreman_id">广告位名称:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="name" value="{{$adSpace->name}}" placeholder="名称">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" style="width:350px;" name="name" value="{{$adSpace->name}}" placeholder="名称">
                                         </div>
                                     </td>
                                 </tr>
@@ -27,7 +27,7 @@
                                         <label for="case_foreman_id"> 广告位描述:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <textarea  class="form-control" id="inputPassword2" name="desc" placeholder="描述">{{$adSpace->desc}}</textarea>
+                                        <div class="form-group">                                                                <textarea  style="width:350px;height:80px;" class="form-control" id="inputPassword2" name="desc" placeholder="描述">{{$adSpace->desc}}</textarea>
                                         </div>
                                     </td>
                                 </tr>

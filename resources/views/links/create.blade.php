@@ -17,7 +17,7 @@
                                         <label for="case_foreman_id">标题:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="name" class="form-control" id="inputPassword2" placeholder="标题">
+                                        <div class="form-group">                                                                <input type="text" name="name" class="form-control" style="width:350px" id="inputPassword2" placeholder="标题">
                                         </div>
                                     </td>
                                 </tr>
@@ -26,7 +26,7 @@
                                         <label for="case_foreman_id">链接地址:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="url" class="form-control" id="inputPassword2" placeholder="链接地址">
+                                        <div class="form-group">                                                                <input type="text" name="url" class="form-control" id="inputPassword2"  style="width:350px" placeholder="链接地址">
                                         </div>
                                     </td>
                                 </tr>

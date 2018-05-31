@@ -19,7 +19,7 @@
                                     </th>
                                     <td style="width:90%;">
                                         <div class="ui-select span5">
-                                            <select name="position_id"  id="" class="form-control">
+                                            <select name="position_id"  style="width:150px" id="" class="form-control">
                                                 @foreach($adSpaces as $space)
                                                 <option value="{{$space->id}}">{{$space->name}}</option>
                                                 @endforeach
@@ -32,7 +32,7 @@
                                         <label for="case_foreman_id">链接地址:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="url" cols="100" class="form-control" id="inputPassword2" placeholder="链接地址"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="url" cols="100" style="width:350px" class="form-control" id="inputPassword2" placeholder="链接地址"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -49,7 +49,7 @@
                                         <label for="case_foreman_id">开始时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="start" onfocus="WdatePicker();" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="start" onfocus="WdatePicker();" style="width:350px" cols="100" class="form-control" id="inputPassword2" placeholder="开始时间"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -58,7 +58,7 @@
                                         <label for="case_foreman_id">结束时间:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <input type="text" rows="4" name="end" onfocus="WdatePicker();" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
+                                        <div class="form-group">                                                                 <input type="text" rows="4" name="end" onfocus="WdatePicker();" style="width:350px" cols="100" class="form-control" id="inputPassword2" placeholder="结束时间"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -67,7 +67,7 @@
                                         <label for="case_foreman_id">描述:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <textarea type="text" rows="4" name="desc" cols="100" class="form-control" id="inputPassword2" placeholder="描述"></textarea>
+                                        <div class="form-group">                                                                 <textarea type="text" style="width:350px;height:80px;" rows="4" name="desc" cols="100" class="form-control" id="inputPassword2" placeholder="描述"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -78,7 +78,7 @@
                                     <td>
                                         <div class="form-group">
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio1" value="1"> 开启
+                                                <input type="radio" name="status" id="inlineRadio1" checked value="1"> 开启
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="status" id="inlineRadio2" value="2"> 关闭

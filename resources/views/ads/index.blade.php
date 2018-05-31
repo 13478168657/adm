@@ -43,7 +43,7 @@
                                     <td>{{$ad->start}}</td>
                                     <td>{{$ad->end}}</td>
                                     <td>{{App\Constants\ArticleStatus::trans($ad->status)}}</td>
-                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$ad->id}}">删除</a>／<a href="/ad/edit?id={{$ad->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$ad->id}}">删除</a>／<a href="/ad/edit?id={{$ad->id}}">修改</a></td>
                                 </tr>
                             @endforeach
                         </table>
