@@ -39,6 +39,9 @@ class InstructionController extends Controller
         $instruction = new Instruction();
         $instruction->name = $request->input('name');
         $instruction->content = $request->input('content');
+        $instruction->meta_title = $request->input('meta_title');
+        $instruction->meta_keyword = $request->input('meta_keyword');
+        $instruction->meta_description = $request->input('meta_description');
         $instruction->status = intval($request->input('status'));
         if($instruction->save()){
             return redirect('/instruction/list');
@@ -59,6 +62,9 @@ class InstructionController extends Controller
         $id = $request->input('id');
         $instruction = Instruction::where('id',$id)->first();
         $instruction->name = $request->input('name');
+        $instruction->meta_title = $request->input('meta_title');
+        $instruction->meta_keyword = $request->input('meta_keyword');
+        $instruction->meta_description = $request->input('meta_description');
         $instruction->content = $request->input('content');
         $instruction->status = intval($request->input('status'));
         if($instruction->save()){

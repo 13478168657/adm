@@ -39,6 +39,9 @@ class NoticeController extends Controller
         $notice = new Notice();
         $notice->name = $request->input('name');
         $notice->content = $request->input('content');
+        $notice->meta_title = $request->input('meta_title');
+        $notice->meta_keyword = $request->input('meta_keyword');
+        $notice->meta_description = $request->input('meta_description');
         $notice->status = intval($request->input('status'));
         if($notice->save()){
             return redirect('/notice/list');
@@ -60,6 +63,9 @@ class NoticeController extends Controller
         $notice = Notice::where('id',$id)->first();
         $notice->name = $request->input('name');
         $notice->content = $request->input('content');
+        $notice->meta_title = $request->input('meta_title');
+        $notice->meta_keyword = $request->input('meta_keyword');
+        $notice->meta_description = $request->input('meta_description');
         $notice->status = intval($request->input('status'));
         if($notice->save()){
             return redirect('/notice/list');

@@ -83,7 +83,7 @@
                                 <tr>
                                     <td>{{$payment->name}}</td>
                                             <td>{{App\Constants\ArticleStatus::trans($payment->status)}}</td>
-                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$payment->id}}">删除</a>／<a href="/payment/edit?id={{$payment->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$payment->id}}">删除</a>／<a href="/payment/edit?id={{$payment->id}}">修改</a>／<a href="{{env('WEB_URL')}}/payment" target="_blank">预览</a></td>
                                 </tr>
                             @endforeach
                         </table>

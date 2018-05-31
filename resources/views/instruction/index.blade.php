@@ -83,7 +83,7 @@
                                 <tr>
                                     <td>{{$instruction->name}}</td>
                                             <td>{{App\Constants\ArticleStatus::trans($instruction->status)}}</td>
-                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$instruction->id}}">删除</a>／<a href="/instruction/edit?id={{$instruction->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$instruction->id}}">删除</a>／<a href="/instruction/edit?id={{$instruction->id}}">修改</a>／<a href="{{env('WEB_URL')}}/instruction" target="_blank">预览</a></td>
                                 </tr>
                             @endforeach
                         </table>

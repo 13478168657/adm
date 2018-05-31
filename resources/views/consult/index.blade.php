@@ -83,7 +83,7 @@
                                 <tr>
                                     <td>{{$consult->name}}</td>
                                             <td>{{App\Constants\ArticleStatus::trans($consult->status)}}</td>
-                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$consult->id}}">删除</a>／<a href="/consult/edit?id={{$consult->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$consult->id}}">删除</a>／<a href="/consult/edit?id={{$consult->id}}">修改</a>／<a href="{{env('WEB_URL')}}/consult" target="_blank">预览</a></td>
                                 </tr>
                             @endforeach
                         </table>

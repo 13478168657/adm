@@ -42,6 +42,9 @@ class ConsultController extends Controller
         $consult = new Consult();
         $consult->name = $request->input('name');
         $consult->content = $request->input('content');
+        $consult->meta_title = $request->input('meta_title');
+        $consult->meta_keyword = $request->input('meta_keyword');
+        $consult->meta_description = $request->input('meta_description');
         $consult->status = intval($request->input('status'));
         if($consult->save()){
             return redirect('/consult/list');
@@ -63,6 +66,9 @@ class ConsultController extends Controller
         $consult = Consult::where('id',$id)->first();
         $consult->name = $request->input('name');
         $consult->content = $request->input('content');
+        $consult->meta_title = $request->input('meta_title');
+        $consult->meta_keyword = $request->input('meta_keyword');
+        $consult->meta_description = $request->input('meta_description');
         $consult->status = intval($request->input('status'));
         if($consult->save()){
             return redirect('/consult/list');

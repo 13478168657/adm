@@ -22,7 +22,33 @@
                                         </div>
                                     </td>
                                 </tr>
-
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">网页标题:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" style="width:350px;" value="{{$notice->meta_title}}" name="meta_title" size="70" maxlength="250" placeholder="网页标题">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">meta关键字:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" style="width:350px;"  value="{{$notice->meta_keyword}}" name="meta_keyword" style="width:350px;" size="70" placeholder="meta关键字">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">meta描述:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <textarea type="text" style="width:350px;height:80px;" class="form-control" id="inputPassword2" value="{{$notice->meta_description}}" name="meta_description" placeholder="meta描述"></textarea>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th>
                                         <label for="case_title">状态:</label>

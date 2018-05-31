@@ -18,11 +18,37 @@
                                         <label for="case_foreman_id">标题:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="name" class="form-control" id="inputPassword2" placeholder="标题">
+                                        <div class="form-group">                                                                <input type="text" name="name" class="form-control" style="width:350px;" id="inputPassword2" placeholder="标题">
                                         </div>
                                     </td>
                                 </tr>
-
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">网页标题:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" style="width:350px;" name="meta_title" size="70" maxlength="250" placeholder="网页标题">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">meta关键字:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" style="width:350px;" name="meta_keyword" value="" style="width:350px;" size="70" placeholder="meta关键字">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">meta描述:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <textarea type="text" style="width:350px;height:80px;" class="form-control" id="inputPassword2" value="" name="meta_description" placeholder="meta描述"></textarea>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th>
                                         <label for="case_title">状态:</label>
@@ -33,10 +59,7 @@
                                                 <input type="radio" name="status" id="inlineRadio1" value="1"> 不通过
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio3" value="3"> 通过
-                                            </label>
-                                        </div>
-                                    </td>
+                                                <input type="radio" name="status" checked id="inlineRadio3" value="3"> 通过
                                 </tr>
                                 <tr>
                                     <th><label for="case_description">内容:</label>
