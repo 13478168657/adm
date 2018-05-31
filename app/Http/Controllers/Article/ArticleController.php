@@ -70,14 +70,15 @@ class ArticleController extends Controller
         $article->number = intval($request->input('number'));
         $article->category_number = $category->category_num;
         $article->meta_description = $request->input('meta_description');
-        $article->meta_description = $request->input('meta_keyword');
-        $article->meta_description = $request->input('meta_title');
+        $article->meta_keyword = $request->input('meta_keyword');
+        $article->meta_title = $request->input('meta_title');
         $article->content = $request->input('content');
         $article->source = $request->input('source');
+        $article->author = $request->input('author');
         $article->status = intval($request->input('status'));
-        $article->market_price = $request->input('market_price');
-        $article->member_price = $request->input('member_price');
-        $article->hot_price = $request->input('hot_price');
+        $article->market_price = intval($request->input('market_price'));
+        $article->member_price = intval($request->input('member_price'));
+        $article->hot_price = intval($request->input('hot_price'));
         if($request->input('image')){
             $picResult = $this->upload($request);
             $article->thumbPic =  $picResult['imgurl'];
@@ -109,8 +110,8 @@ class ArticleController extends Controller
         $article->title = $request->input('title');
         $article->number = intval($request->input('number'));
         $article->meta_description = $request->input('meta_description');
-        $article->meta_description = $request->input('meta_keyword');
-        $article->meta_description = $request->input('meta_title');
+        $article->meta_keyword = $request->input('meta_keyword');
+        $article->meta_title = $request->input('meta_title');
         $article->content = $request->input('content');
         $article->source = $request->input('source');
         $article->status = intval($request->input('status'));

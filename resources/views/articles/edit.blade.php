@@ -20,7 +20,7 @@
                                         <label for="case_foreman_id">标题:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="title" value="{{$article->title}}" class="form-control" id="inputPassword2" placeholder="标题">
+                                        <div class="form-group">                                                                <input type="text" name="title" value="{{$article->title}}" class="form-control" style="width:350px;" id="inputPassword2" placeholder="标题">
                                         </div>
                                     </td>
                                 </tr>
@@ -29,7 +29,7 @@
                                         <label for="case_foreman_id">序号:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="number" value="{{$article->number}}" class="form-control" id="inputPassword2" placeholder="序号">
+                                        <div class="form-group">                                                                <input type="text" name="number" value="{{($article->number > 0)?:''}}" class="form-control" style="width:350px;" id="inputPassword2" placeholder="序号">
                                         </div>
                                     </td>
                                 </tr>
@@ -38,7 +38,7 @@
                                         <label for="case_foreman_id">市场价:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" value="{{$article->market_price}}" name="market_price" class="form-control" id="inputPassword2" placeholder="市场价">
+                                        <div class="form-group">                                                                <input type="text" value="{{($article->market_price > 0)?:''}}" style="width:350px;" name="market_price" class="form-control" id="inputPassword2" placeholder="市场价">
                                         </div>
                                     </td>
                                 </tr>
@@ -47,7 +47,7 @@
                                         <label for="case_foreman_id">会员价:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" value="{{$article->member_price}}" name="member_price" class="form-control" id="inputPassword2" placeholder="会员价">
+                                        <div class="form-group">                                                                <input type="text" value="{{($article->member_price > 0)?:''}}" style="width:350px;" name="member_price" class="form-control" id="inputPassword2" placeholder="会员价">
                                         </div>
                                     </td>
                                 </tr>
@@ -56,7 +56,16 @@
                                         <label for="case_foreman_id">热卖价:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" value="{{$article->hot_price}}" name="hot_price" class="form-control" id="inputPassword2" placeholder="热卖价">
+                                        <div class="form-group">                                                                <input type="text" value="{{($article->hot_price > 0)?:''}}" style="width:350px;" name="hot_price" class="form-control" id="inputPassword2" placeholder="热卖价">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
+                                        <label for="case_foreman_id">作者:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" name="author" class="form-control" id="inputPassword2" style="width:350px;" placeholder="作者">
                                         </div>
                                     </td>
                                 </tr>
@@ -65,7 +74,7 @@
                                         <label for="case_foreman_id">出处:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="source" value="{{$article->source}}" class="form-control" id="inputPassword2" placeholder="出处">
+                                        <div class="form-group">                                                                <input type="text" name="source" value="{{$article->source}}" class="form-control" style="width:350px;" id="inputPassword2" placeholder="出处">
                                         </div>
                                     </td>
                                 </tr>
@@ -85,10 +94,10 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">网页标题:</label>
+                                        <label for="case_foreman_id">meta网页标题:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_title" value="{{$article->meta_title}}" size="70" maxlength="250" placeholder="网页标题">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_title" style="width:350px;" value="{{$article->meta_title}}" size="70" maxlength="250" placeholder="meta网页标题">
                                         </div>
                                     </td>
                                 </tr>
@@ -97,7 +106,7 @@
                                         <label for="case_foreman_id">meta关键字:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_keyword" value="{{$article->meta_keyword}}"  size="70" maxlength="250" placeholder="meta关键字">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_keyword" style="width:350px;" value="{{$article->meta_keyword}}"  size="70" maxlength="250" placeholder="meta关键字">
                                         </div>
                                     </td>
                                 </tr>
@@ -106,7 +115,7 @@
                                         <label for="case_foreman_id">meta描述:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" size="70" maxlength="250" class="form-control" id="inputPassword2" value="{{$article->meta_description}}" name="meta_description" placeholder="meta描述">
+                                        <div class="form-group">                                                                 <textarea type="text" size="90" style="width:350px;height:80px;" maxlength="350" class="form-control" id="inputPassword2"  name="meta_description" placeholder="meta描述">{{$article->meta_description}}</textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -117,13 +126,13 @@
                                     <td>
                                         <div class="form-group">
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio1" value="1"> 不通过
+                                                <input type="radio" name="status" id="inlineRadio1" {{$article->status==1?"checked":''}} value="1"> 不通过
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio2" value="2"> 待审核
+                                                <input type="radio" name="status" id="inlineRadio2" {{$article->status==2?"checked":''}} value="2"> 待审核
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio3" value="3"> 通过
+                                                <input type="radio" name="status" id="inlineRadio3" {{$article->status==3?"checked":''}} value="3"> 通过
                                             </label>
                                         </div>
                                     </td>

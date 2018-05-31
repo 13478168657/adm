@@ -87,7 +87,7 @@
                                     <td>{{$article->title}}</td>
                                     <td>{{$article->source}}</td>
                                     <td>{{App\Constants\ArticleStatus::trans($article->status)}}</td>
-                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$article->id}}">删除</a>／<a href="/manage/edit?pid={{$article->category_id}}&id={{$article->id}}">修改</a>／<a href="" target="_blank">预览</a></td>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$article->id}}">删除</a>／<a href="/manage/edit?pid={{$article->category_id}}&id={{$article->id}}">修改</a>／<a href="{{env('WEB_URL')}}/thread-{{$article->id}}.html" target="_blank">预览</a></td>
                                 </tr>
                             @endforeach
                         </table>
