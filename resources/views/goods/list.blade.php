@@ -104,7 +104,7 @@
                 var id = $(obj).attr('data-id');
                 var data = {id:id,_token:_token};
                 $.ajax({
-                    url:'/manage/del',
+                    url:'/goods/del',
                     data:data,
                     dataType:'json',
                     type:'POST',
