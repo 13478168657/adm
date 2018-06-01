@@ -65,7 +65,7 @@ $categoryA = Category::where('base_id',1)->orderby('number','asc')->get();
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
-                    <li class="ad_position base-list"><a href="/base/list">网站基本设置</a></li>
+                    <li class="ad_position base-list"><a href="/base/config">网站基本设置</a></li>
                 </ul>
             </li>
         </ul>

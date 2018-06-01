@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Base;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BaseConfig;
-use Symfony\Component\Yaml\Tests\B;
 
 class BaseConfigController extends Controller
 {
@@ -14,8 +13,13 @@ class BaseConfigController extends Controller
 
     }
     public function index(Request $request){
-        $configs = BaseConfig::get();
-        return view('base.index',['configs'=>$configs]);
+        $config = BaseConfig::first();
+        if($config){
+            $flag = 1;
+        }else{
+            $flag = 0;
+        }
+        return view('base.index',['config'=>$config,'flag'=>$flag]);
     }
 
     public function create(Request $request){
@@ -23,7 +27,12 @@ class BaseConfigController extends Controller
         return view('base.create');
     }
     public function postCreate(Request $request){
-        $config = new BaseConfig();
+        if($request->input('id')){
+            $config = BaseConfig::where('id',$request->input('id'))->first();
+        }else{
+            $config = new BaseConfig();
+        }
+
         $config->title = $request->input('title');
         $config->name = $request->input('name');
         $config->home_key_word = $request->input('home_key_word');
@@ -32,7 +41,7 @@ class BaseConfigController extends Controller
         $config->link_mobile = $request->input('link_mobile');
         $config->address = $request->input('address');
         if($config->save()){
-            return redirect('/base/list');
+            return redirect('/base/config');
         }
     }
     public function edit(Request $request){

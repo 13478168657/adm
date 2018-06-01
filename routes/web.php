@@ -133,7 +133,7 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
     /*
      * 基本配置
      */
-    Route::get('base/list','Base\BaseConfigController@index');
+    Route::get('base/config','Base\BaseConfigController@index');
     Route::get('base/create','Base\BaseConfigController@create');
     Route::post('base/postCreate','Base\BaseConfigController@postCreate');
     Route::get('base/edit','Base\BaseConfigController@edit');
