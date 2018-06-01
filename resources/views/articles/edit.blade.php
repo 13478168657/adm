@@ -65,7 +65,7 @@
                                         <label for="case_foreman_id">作者:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="author" class="form-control" id="inputPassword2" style="width:350px;" placeholder="作者">
+                                        <div class="form-group">                                                                <input type="text" name="author" class="form-control" id="inputPassword2" value="{{$article->author}}" style="width:350px;" placeholder="作者">
                                         </div>
                                     </td>
                                 </tr>
