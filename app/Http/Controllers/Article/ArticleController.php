@@ -76,9 +76,9 @@ class ArticleController extends Controller
         $article->source = $request->input('source');
         $article->author = $request->input('author');
         $article->status = intval($request->input('status'));
-        $article->market_price = intval($request->input('market_price'));
-        $article->member_price = intval($request->input('member_price'));
-        $article->hot_price = intval($request->input('hot_price'));
+//        $article->market_price = intval($request->input('market_price'));
+//        $article->member_price = intval($request->input('member_price'));
+//        $article->hot_price = intval($request->input('hot_price'));
         if($request->input('image')){
             $picResult = $this->upload($request);
             $article->thumbPic =  $picResult['imgurl'];
@@ -115,9 +115,9 @@ class ArticleController extends Controller
         $article->content = $request->input('content');
         $article->source = $request->input('source');
         $article->status = intval($request->input('status'));
-        $article->market_price = intval($request->input('market_price'));
-        $article->member_price = intval($request->input('member_price'));
-        $article->hot_price = intval($request->input('hot_price'));
+//        $article->market_price = intval($request->input('market_price'));
+//        $article->member_price = intval($request->input('member_price'));
+//        $article->hot_price = intval($request->input('hot_price'));
         if($request->input('image')){
             $picResult = $this->upload($request);
             $article->thumbPic =  $picResult['imgurl'];

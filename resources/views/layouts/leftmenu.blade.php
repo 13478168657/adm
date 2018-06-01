@@ -30,6 +30,15 @@ $categoryA = Category::where('base_id',1)->orderby('number','asc')->get();
             </li>
             <li>
                 <a href="javascript:void(0);">
+                    <i class="glyphicon glyphicon-briefcase"></i>葡萄商品管理
+                    <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
+                </a>
+                <ul class="side-ul-menu">
+                        <li name="sss" class="ad_position putao_goods"><a href="/goods/list">葡萄商品列表</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
                     <i class="glyphicon glyphicon-wrench"></i>单页管理
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>

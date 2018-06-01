@@ -34,33 +34,6 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">市场价:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="market_price" class="form-control" id="inputPassword2" style="width:350px;" placeholder="市场价">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
-                                        <label for="case_foreman_id">会员价:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="member_price" class="form-control" id="inputPassword2" style="width:350px;" placeholder="会员价">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
-                                        <label for="case_foreman_id">热卖价:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="hot_price" class="form-control" id="inputPassword2" style="width:350px;" placeholder="热卖价">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
                                         <label for="case_foreman_id">作者:</label>
                                     </th>
                                     <td style="width:90%;">

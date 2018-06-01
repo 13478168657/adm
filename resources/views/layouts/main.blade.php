@@ -89,6 +89,12 @@
     	$('.adSpace-list').parent().parent().find('.toggle-icon').eq(0).removeClass('glyphicon-menu-down').addClass('glyphicon-menu-left');
     }
 
+	if(lefturl == '/goods/list' || lefturl == '/goods/create' || lefturl == '/goods/edit'){
+		$('.putao_goods').addClass('active');
+		$('.putao_goods').parent('.side-ul-menu').css("display","block");
+		$('.putao_goods').parent().parent().find('.toggle-icon').eq(0).removeClass('glyphicon-menu-down').addClass('glyphicon-menu-left');
+	}
+
 	if(lefturl == '/base/config' || lefturl == '/base/create' || lefturl == '/base/edit'){
 		$('.base-list').addClass('active');
 		$('.base-list').parent('.side-ul-menu').css("display","block");

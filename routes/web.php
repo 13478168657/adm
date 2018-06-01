@@ -131,6 +131,15 @@ Route::group(['middleware'=>['auth','checkUserPermission']],function(){
     Route::post('instruction/del','Instruction\InstructionController@del');
 
     /*
+     *葡萄商品管理
+    */
+    Route::get('goods/list', 'Good\GoodController@index');
+    Route::get('goods/create', 'Good\GoodController@create');
+    Route::post('goods/postCreate', 'Good\GoodController@postCreate');
+    Route::get('goods/edit', 'Good\GoodController@edit');
+    Route::post('goods/postEdit', 'Good\GoodController@postEdit');
+    Route::post('goods/del', 'Good\GoodController@del');
+    /*
      * 基本配置
      */
     Route::get('base/config','Base\BaseConfigController@index');
