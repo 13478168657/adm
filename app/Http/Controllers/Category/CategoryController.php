@@ -29,7 +29,7 @@ class CategoryController extends Controller
         $base_id = $request->input('base_id');
         $category = new Category();
         $category->base_id = $base_id;
-        $category->number = $request->input('number');
+        $category->number = intval($request->input('number'));
         $category->name = $request->input('name');
         $category->meta_title = $request->input('meta_title');
         $category->meta_description = $request->input('meta_description');
@@ -55,7 +55,7 @@ class CategoryController extends Controller
     public function postEdit(Request $request){
         $id = $request->input('id');
         $category = Category::where('id',$id)->first();
-        $category->number = $request->input('number');
+        $category->number = intval($request->input('number'));
         $category->name = $request->input('name');
         $category->meta_title = $request->input('meta_title');
         $category->meta_description = $request->input('meta_description');
