@@ -42,8 +42,8 @@
                                                 </div>
                                                 <div class="form-group input-group-sm">
                                                     <div class="input-group">
-                                                        <div class="input-group-addon">标题</div>
-                                                        <input value="{{$request->input('title')}}" placeholder="文章标题" id="title" class="form-control" name="title" type="text">
+                                                        <div class="input-group-addon">名称</div>
+                                                        <input value="{{$request->input('title')}}" placeholder="名称" id="title" class="form-control" name="title" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="form-group input-group-sm">
@@ -75,7 +75,7 @@
                             <thead>
                             <tr>
                                 <th>序号</th>
-                                <th>标题</th>
+                                <th>名称</th>
                                 <th>出处</th>
                                 <th>状态</th>
                                 <th>操作</th>

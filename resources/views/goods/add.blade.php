@@ -14,10 +14,10 @@
                             <table class="table table-condensed table-add">
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">标题:</label>
+                                        <label for="case_foreman_id">名称:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="title" class="form-control" id="inputPassword2" style="width:350px;" placeholder="标题">
+                                        <div class="form-group">                                                                <input type="text" name="title" class="form-control" id="inputPassword2" style="width:350px;" placeholder="名称">
                                         </div>
                                     </td>
                                 </tr>
