@@ -74,7 +74,7 @@
                                         <label for="case_foreman_id">联系地址:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <textarea id="editor" name="address" style="width:350px;height:90px;" value="{{$flag?$config->address:''}}"  type="text" style="width:200px;height:50px;"></textarea>
+                                        <div class="form-group">                                                                <textarea id="editor" name="address" style="width:350px;height:90px;" type="text" style="width:200px;height:50px;">{{$flag?$config->address:''}} </textarea>
                                         </div>
                                     </td>
                                 </tr>

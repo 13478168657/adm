@@ -32,7 +32,6 @@ class BaseConfigController extends Controller
         }else{
             $config = new BaseConfig();
         }
-
         $config->title = $request->input('title');
         $config->name = $request->input('name');
         $config->home_key_word = $request->input('home_key_word');
@@ -40,6 +39,7 @@ class BaseConfigController extends Controller
         $config->link_style = $request->input('link_style');
         $config->link_mobile = $request->input('link_mobile');
         $config->address = $request->input('address');
+//        dd($config);
         if($config->save()){
             return redirect('/base/config');
         }
