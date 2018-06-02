@@ -25,15 +25,6 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">序号:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="number" class="form-control" id="inputPassword2" style="width:350px;" placeholder="序号">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
                                         <label for="case_foreman_id">作者:</label>
                                     </th>
                                     <td style="width:90%;">

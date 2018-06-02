@@ -67,7 +67,7 @@ class ArticleController extends Controller
 
         $article->title = $request->input('title');
         $article->category_id = $category_id;
-        $article->number = intval($request->input('number'));
+//        $article->number = intval($request->input('number'));
         $article->category_number = $category->category_num;
         $article->meta_description = $request->input('meta_description');
         $article->meta_keyword = $request->input('meta_keyword');
@@ -104,16 +104,16 @@ class ArticleController extends Controller
      * 编辑处理
      */
     public function postEdit(Request $request){
-//        dd($request->all());
         $article = Article::where('id',$request->input('id'))->first();
         $key = $request->input('key');
         $article->title = $request->input('title');
-        $article->number = intval($request->input('number'));
+//        $article->number = intval($request->input('number'));
         $article->meta_description = $request->input('meta_description');
         $article->meta_keyword = $request->input('meta_keyword');
         $article->meta_title = $request->input('meta_title');
         $article->content = $request->input('content');
         $article->source = $request->input('source');
+        $article->author = $request->input('author');
         $article->status = intval($request->input('status'));
 //        $article->market_price = intval($request->input('market_price'));
 //        $article->member_price = intval($request->input('member_price'));

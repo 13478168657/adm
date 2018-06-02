@@ -26,15 +26,6 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">序号:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="number" value="{{($article->number > 0)?:''}}" class="form-control" style="width:350px;" id="inputPassword2" placeholder="序号">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
                                         <label for="case_foreman_id">作者:</label>
                                     </th>
                                     <td style="width:90%;">
