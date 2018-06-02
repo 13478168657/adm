@@ -71,7 +71,7 @@ class ArticleController extends Controller
         $article->category_number = $category->category_num;
         $article->meta_description = $request->input('meta_description');
         $article->meta_keyword = $request->input('meta_keyword');
-        $article->meta_title = $request->input('meta_title');
+//        $article->meta_title = $request->input('meta_title');
         $article->content = $request->input('content');
         $article->source = $request->input('source');
         $article->author = $request->input('author');
@@ -110,7 +110,7 @@ class ArticleController extends Controller
 //        $article->number = intval($request->input('number'));
         $article->meta_description = $request->input('meta_description');
         $article->meta_keyword = $request->input('meta_keyword');
-        $article->meta_title = $request->input('meta_title');
+//        $article->meta_title = $request->input('meta_title');
         $article->content = $request->input('content');
         $article->source = $request->input('source');
         $article->author = $request->input('author');

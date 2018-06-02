@@ -58,15 +58,6 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">meta网页标题:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_title" style="width:350px;" value="{{$article->meta_title}}" size="70" maxlength="250" placeholder="meta网页标题">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
                                         <label for="case_foreman_id">meta关键字:</label>
                                     </th>
                                     <td style="width:90%;">

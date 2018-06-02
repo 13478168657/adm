@@ -23,15 +23,6 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">序号:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="number" class="form-control" id="inputPassword2" style="width:350px;" placeholder="序号">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
                                         <label for="case_foreman_id">市场价:</label>
                                     </th>
                                     <td style="width:90%;">
@@ -82,15 +73,6 @@
                                     <td style="width:90%;">                                                                                      <input type="file" name="thumbPic" class="" id="">
                                         <div class="image_upload"></div>
             <input type="hidden" name="image" value=""/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
-                                        <label for="case_foreman_id">meta网页标题:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_title" style="width:350px;" size="70" maxlength="250" placeholder="meta网页标题">
-                                        </div>
                                     </td>
                                 </tr>
                                 <tr>

@@ -24,15 +24,6 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
-                                        <label for="case_foreman_id">序号:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" name="number" value="{{($good->number > 0)?:''}}" class="form-control" style="width:350px;" id="inputPassword2" placeholder="序号">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
                                         <label for="case_foreman_id">市场价:</label>
                                     </th>
                                     <td style="width:90%;">
@@ -88,15 +79,6 @@
                                         </div>
                                         @endif
                                         <input type="hidden" name="image" value=""/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width:10%;">
-                                        <label for="case_foreman_id">meta网页标题:</label>
-                                    </th>
-                                    <td style="width:90%;">
-                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" name="meta_title" style="width:350px;" value="{{$good->meta_title}}" size="70" maxlength="250" placeholder="meta网页标题">
-                                        </div>
                                     </td>
                                 </tr>
                                 <tr>

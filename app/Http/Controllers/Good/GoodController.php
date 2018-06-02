@@ -50,10 +50,10 @@ class GoodController extends Controller
     public function postCreate(Request $request){
         $good = new Good();
         $good->title = $request->input('title');
-        $good->number = intval($request->input('number'));
+//        $good->number = intval($request->input('number'));
         $good->meta_description = $request->input('meta_description');
         $good->meta_keyword = $request->input('meta_keyword');
-        $good->meta_title = $request->input('meta_title');
+//        $good->meta_title = $request->input('meta_title');
         $good->content = $request->input('content');
         $good->source = $request->input('source');
         $good->author = $request->input('author');
@@ -85,10 +85,10 @@ class GoodController extends Controller
         $good = Good::where('id',$request->input('id'))->first();
         $key = $request->input('key');
         $good->title = $request->input('title');
-        $good->number = intval($request->input('number'));
+//        $good->number = intval($request->input('number'));
         $good->meta_description = $request->input('meta_description');
         $good->meta_keyword = $request->input('meta_keyword');
-        $good->meta_title = $request->input('meta_title');
+//        $good->meta_title = $request->input('meta_title');
         $good->content = $request->input('content');
         $good->source = $request->input('source');
         $good->status = intval($request->input('status'));
