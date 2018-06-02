@@ -91,6 +91,7 @@ class GoodController extends Controller
 //        $good->meta_title = $request->input('meta_title');
         $good->content = $request->input('content');
         $good->source = $request->input('source');
+        $good->author = $request->input('author');
         $good->status = intval($request->input('status'));
         $good->market_price = intval($request->input('market_price'));
         $good->member_price = intval($request->input('member_price'));
