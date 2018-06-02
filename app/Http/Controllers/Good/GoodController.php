@@ -36,7 +36,7 @@ class GoodController extends Controller
         if($request->input('end_time')){
             $good = $good->where('created_at','<=',$request->input('end_time'));
         }
-        $goods = $good->paginate(15);
+        $goods = $good->orderBy('id','desc')->paginate(15);
         return view('goods.list',['goods'=>$goods,'request'=>$request]);
     }
 

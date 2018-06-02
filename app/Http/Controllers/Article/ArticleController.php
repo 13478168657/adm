@@ -45,7 +45,7 @@ class ArticleController extends Controller
             $article = $article->where('created_at','<=',$request->input('end_time'));
         }
         $article = $article->where('category_number',$category_number);
-        $articles = $article->paginate(15);
+        $articles = $article->orderBy('created_at','desc')->paginate(15);
         return view('articles.list',['articles'=>$articles,'request'=>$request,'category'=>$category,'key'=>$key]);
     }
 

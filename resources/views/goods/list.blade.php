@@ -83,7 +83,7 @@
                             </thead>
                             @foreach($goods as $good)
                                 <tr>
-                                    <td>{{$good->number}}</td>
+                                    <td>{{$good->id}}</td>
                                     <td>{{$good->title}}</td>
                                     <td>{{$good->source}}</td>
                                     <td>{{App\Constants\ArticleStatus::trans($good->status)}}</td>
