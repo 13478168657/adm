@@ -39,7 +39,6 @@ class PaymentController extends Controller
         $payment = new Payment();
         $payment->name = $request->input('name');
         $payment->content = $request->input('content');
-        $payment->meta_title = $request->input('meta_title');
         $payment->meta_keyword = $request->input('meta_keyword');
         $payment->meta_description = $request->input('meta_description');
         $payment->status = intval($request->input('status'));
@@ -63,7 +62,6 @@ class PaymentController extends Controller
         $payment = Payment::where('id',$id)->first();
         $payment->name = $request->input('name');
         $payment->content = $request->input('content');
-        $payment->meta_title = $request->input('meta_title');
         $payment->meta_keyword = $request->input('meta_keyword');
         $payment->meta_description = $request->input('meta_description');
         $payment->status = intval($request->input('status'));
