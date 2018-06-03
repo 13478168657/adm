@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware'=>['auth','checkUserPermission']],function(){
+Route::group(['middleware'=>['auth']],function(){
     Route::get('/', 'Home\HomeController@index');
     Route::get('manage/info', 'Article\ArticleController@index');
     Route::get('manage/add', 'Article\ArticleController@add');
