@@ -3,7 +3,7 @@
     <title>文章列表</title>
 @endsection
 @section('content')
-    <div class="main" id="mainWrapper">
+    <div class="main content-wrapper" id="mainWrapper">
         <h3>内容</h3>
         <div class="wrapper table-scroll-wrapper">
             <div class="row">
@@ -94,8 +94,12 @@
                     </div>
                 </div>
             </div>
+            <div class="paginate pull-right">
+                {{ $articles->appends(['key'=>$key,'id'=>$category->category_num])->render() }}
+            </div>
         </div>
     </div>
+
     <script>
         function del(obj){
             var judge = confirm("确认删除");

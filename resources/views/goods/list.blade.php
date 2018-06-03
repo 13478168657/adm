@@ -94,6 +94,9 @@
                     </div>
                 </div>
             </div>
+            <div class="paginate pull-right">
+                {{ $goods->render() }}
+            </div>
         </div>
     </div>
     <script>
