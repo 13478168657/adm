@@ -40,6 +40,8 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <input type="hidden" name="key" value="{{$key}}"/>
+                                                <input type="hidden" name="id" value="{{$category->category_num}}"/>
                                                 <div class="form-group input-group-sm">
                                                     <div class="input-group">
                                                         <div class="input-group-addon">标题</div>
