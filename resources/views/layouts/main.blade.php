@@ -73,6 +73,11 @@
     	$('.delivery-notice').parent('.side-ul-menu').css("display","block");
     	$('.delivery-notice').parent().parent().find('.toggle-icon').eq(0).removeClass('glyphicon-menu-down').addClass('glyphicon-menu-left');
     }
+	if(lefturl == '/about/list' || lefturl == '/about/create' || lefturl == '/about/edit'){
+		$('.delivery-about').addClass('active');
+		$('.delivery-about').parent('.side-ul-menu').css("display","block");
+		$('.delivery-about').parent().parent().find('.toggle-icon').eq(0).removeClass('glyphicon-menu-down').addClass('glyphicon-menu-left');
+	}
     if(lefturl == '/link/list' || lefturl == '/link/create' || lefturl == '/link/edit'){
     	$('.link-list').addClass('active');
     	$('.link-list').parent('.side-ul-menu').css("display","block");

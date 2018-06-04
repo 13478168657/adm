@@ -47,6 +47,7 @@ $categoryA = Category::where('base_id',1)->orderby('number','asc')->get();
                     <li class="ad_position payment-style"><a href="/payment/list">付款方式</a></li>
                     <li class="ad_position delivery-instruction"><a href="/instruction/list">批发说明</a></li>
                      <li class="ad_position delivery-notice"><a href="/notice/list">发货须知</a></li>
+                     <li class="ad_position delivery-about"><a href="/about/list">关于我们</a></li>
                 </ul>
             </li>
             <li>

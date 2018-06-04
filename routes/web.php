@@ -131,6 +131,15 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('instruction/del','Instruction\InstructionController@del');
 
     /*
+     * 关于我们
+     */
+    Route::get('about/list','About\AboutController@index');
+    Route::get('about/create','About\AboutController@create');
+    Route::post('about/postCreate','About\AboutController@postCreate');
+    Route::get('about/edit','About\AboutController@edit');
+    Route::post('about/postEdit','About\AboutController@postEdit');
+    Route::post('about/del','About\AboutController@del');
+    /*
      *葡萄商品管理
     */
     Route::get('goods/list', 'Good\GoodController@index');
