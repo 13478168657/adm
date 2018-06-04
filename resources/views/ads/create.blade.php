@@ -78,10 +78,10 @@
                                     <td>
                                         <div class="form-group">
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio1" checked value="1"> 开启
+                                                <input type="radio" name="status" id="inlineRadio1" checked value="3"> 开启
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio2" value="2"> 关闭
+                                                <input type="radio" name="status" id="inlineRadio2" value="1"> 关闭
                                             </label>
                                         </div>
                                     </td>

@@ -46,6 +46,11 @@
                                     </th>
                                     <td style="width:90%;">                                               <input type="file" name="image" class="" id="">
                                         <div class="image_upload"></div>
+                                        @if($advertisement->photo)
+                                            <div class="img_span">
+                                                <img class="img" src="{{env('IMG_URL').'/'.$advertisement->photo}}" style="width:80px;height:80px;margin-left:8px;"><span onclick="delImgUrl(this);" class="image_icon"></span>
+                                            </div>
+                                        @endif
                                     </td>
                                 </tr>
                                 <tr>
@@ -82,10 +87,10 @@
                                     <td>
                                         <div class="form-group">
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio1" {{$advertisement->status==1?'checked':''}} value="1"> 开启
+                                                <input type="radio" name="status" id="inlineRadio1" {{$advertisement->status==3?'checked':''}} value="1"> 开启
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="status" id="inlineRadio2" {{$advertisement->status==2?'checked':''}} value="2"> 关闭
+                                                <input type="radio" name="status" id="inlineRadio2" {{$advertisement->status==1?'checked':''}} value="2"> 关闭
                                             </label>
                                         </div>
                                     </td>
